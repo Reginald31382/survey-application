@@ -42,14 +42,26 @@ const surveyJson = {
   ],
 };
 
-const SurveyComponent = () => {
+const SurveyApp = () => {
   const survey = new Model(surveyJson);
 
   survey.onComplete.add((sender) => {
     console.log("Survey Results: ", sender.data);
   });
 
+  // Send the survey results to the backend
+  fetch("http://localhost:5000/send-email", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(surveyData),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log("Email sent successfully:", data))
+    .catch((error) => console.error("Error sending email:", error));
+
   return <Survey model={survey} />;
 };
 
-export default SurveyComponent;
+export default SurveyApp;

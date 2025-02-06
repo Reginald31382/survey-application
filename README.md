@@ -1,3 +1,9 @@
+ABOUT:
+This web application allows users to complete a customer feedback survey and automatically sends the survey responses to a specified email address. Built with React and SurveyJS for the frontend and Node.js with Express and Nodemailer for the backend, the application collects user input, processes the data, and emails the results securely. The server is configured to use Gmail's SMTP with app passwords for authentication, ensuring reliable email delivery.
+
+
+
+*****************************************************************************************************************
 installed: 
 npm install survey-react-ui survey-core
 mkdir backend && cd backend
